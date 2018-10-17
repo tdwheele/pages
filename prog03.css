@@ -1,11 +1,11 @@
 td {color: red; max-width: 5px}
 h1 {color: purple;}
 body {background-color: lightblue;}
-p.one {
+p {
     border-left: 6px solid red;
     background-color: lightgrey;
 }
-p.one {
+p {
     font-family: "Times New Roman", Times, serif;
 }
 h1 {text-align: center;}
