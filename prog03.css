@@ -34,3 +34,5 @@ h1 {
     border-style: solid;
     border-color: green;
 }
+h1 span, h2 {color: red; }
+
