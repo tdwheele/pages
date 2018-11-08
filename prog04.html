@@ -129,8 +129,10 @@ function addForm() {
 	fieldset1.appendChild(newelement);
 
 	// add more fields 
-	addField("fieldset1", "lname", "Last", "text", "Doe", inputWidth);
-	addField("fieldset1", "age", "Age", "number", "18", inputWidth);
+	addField("fieldset1", "lname", "Surname", "text", "Doe", inputWidth);
+	addField("fieldset1", "day", "Birth Day", "number", "18", inputWidth);
+	addField("fieldset1", "month", "Birth Month", "number", "10", inputWidth);
+	addField("fieldset1", "year", "Birth Year", "number", "1997", inputWidth);
 	addField("fieldset1", "country", "Country", "text", "USA", inputWidth);
 
 	// add line break 
@@ -150,8 +152,10 @@ function addLine () {
 	// precondition: call from addForm() so HTML element with id="fieldset1" exists
 	
 	addField("fieldset1", "fname", "First", "text", "Jane", inputWidth);
-	addField("fieldset1", "lname", "Last", "text", "Doe", inputWidth);
-	addField("fieldset1", "age", "Age", "number", "18", inputWidth);
+	addField("fieldset1", "sname", "Surname", "text", "Doe", inputWidth);
+	addField("fieldset1", "day", "Birth Day", "number", "18", inputWidth);
+	addField("fieldset1", "month", "Birth Month", "number", "10", inputWidth);
+	addField("fieldset1", "year", "Birth Year", "number", "1997", inputWidth);
 	addField("fieldset1", "country", "Country", "text", "USA", inputWidth);
 	var newelement = document.createElement("br");
 	var fieldset1 = document.getElementById("fieldset1");
@@ -230,8 +234,10 @@ function genObjectArray() {
 	for(i = 0; i < currentLine; i++) {
 		objArray[i] = {
 			'fname'     :document.getElementById("fname"+i).value,
-			'lname'     :document.getElementById("lname"+i).value,
-			'age'       :parseInt(document.getElementById("age"+i).value)?parseInt(document.getElementById("age"+i).value):0, 
+			'sname'     :document.getElementById("sname"+i).value,
+			'day'       :parseInt(document.getElementById("day"+i).value)?parseInt(document.getElementById("day"+i).value):0, 
+			'month'       :parseInt(document.getElementById("month"+i).value)?parseInt(document.getElementById("month"+i).value):0,
+			'year'       :parseInt(document.getElementById("year"+i).value)?parseInt(document.getElementById("year"+i).value):0,
 			'country'   :document.getElementById("country"+i).value,
 			'countryAge':function () {
 				if('China'==this.country)
