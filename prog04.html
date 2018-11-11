@@ -34,7 +34,7 @@
 		<h1>Generate array of objects</h1>
 		
 		<p>Loop through the HTML form lines and store the data into an array of objects, where each property of an object contains the data in the input field of the HTML entry form. </p>
-		
+	    
 		<button type="button" onclick="genObjectArray();">Generate and Display Array of Objects</button>
 		<br />
 		
@@ -45,42 +45,15 @@
 		
 		<p>Loop through the HTML form lines and store the data into an array of objects, where each property of an object contains the data in the input field of the HTML entry form. </p>
 
-		<button type="button" onclick="">Generate and Display Table</button>
-		$(document).ready(function(genObjectArray) {
-    
-        var data1 = [
-        { field1: 'fname', field2: 'sname', field3: 'day', field4: 'month', field5: 'year', field6: 'country'}
-        ];
+		<button type="button" onclick="genTable();">Generate and Display Table</button>
 		<br />
 		<br />
 		
 		<div id="div3">
 		</div>
-		
-		<!-- The table, below, shows examples of data. Do not include any HTML-coded table in your code. Instead, use JavaScript to append a table to the div, above. -->
-		<table border="1">
-		  <tr>
-			<th>Local Name</th>
-			<th>Local DOB</th>
-			<th>Local Age</th>
-			<th>Local Zodiac</th>
-		  </tr>
-		  <tr>
-			<td>Deng Xiaoping</td>
-			<td>1904-08-22</td>
-			<td>115</td>
-			<td>Dragon</td>
-		  </tr>
-		  <tr>
-			<td>Dwight Eisenhower</td>
-			<td>10-14-1890</td>
-			<td>128</td>
-			<td>Libra</td>
-		  </tr>
-
-		</table>
-
+   
 		<script>
+		
 		
 // GLOBAL VARIABLES
 
@@ -135,12 +108,11 @@ function addForm() {
 	fieldset1.appendChild(newelement);
 
 	// add more fields 
-	addField("fieldset1", "lname", "Surname", "text", "Doe", inputWidth);
+	addField("fieldset1", "sname", "Surname", "text", "Doe", inputWidth);
 	addField("fieldset1", "day", "Birth Day", "number", "18", inputWidth);
 	addField("fieldset1", "month", "Birth Month", "number", "10", inputWidth);
 	addField("fieldset1", "year", "Birth Year", "number", "1997", inputWidth);
 	addField("fieldset1", "country", "Country", "text", "USA", inputWidth);
-
 	// add line break 
 	var newelement = document.createElement("br");
 	var fieldset1 = document.getElementById("fieldset1");
@@ -227,6 +199,8 @@ function addField(formId, namePrefix, labelText, dataType, placeholder, fieldSiz
 
 }
 
+
+
 /* genObjectArray()
  * generates content for an array of objects, 
  * where each element of the array 
@@ -241,15 +215,15 @@ function genObjectArray() {
 		objArray[i] = {
 			'fname'     :document.getElementById("fname"+i).value,
 			'sname'     :document.getElementById("sname"+i).value,
-			'day'       :parseInt(document.getElementById("day"+i).value)?parseInt(document.getElementById("day"+i).value):0, 
-			'month'       :parseInt(document.getElementById("month"+i).value)?parseInt(document.getElementById("month"+i).value):0,
-			'year'       :parseInt(document.getElementById("year"+i).value)?parseInt(document.getElementById("year"+i).value):0,
+			'day'       :parseInt(document.getElementById("day" +i).value)?parseInt(document.getElementById("day"+i).value):0, 
+			'month'     :parseInt(document.getElementById("month"+i).value)?parseInt(document.getElementById("month"+i).value):0,
+			'year'      :parseInt(document.getElementById("year"+i).value)?parseInt(document.getElementById("year"+i).value):0,
 			'country'   :document.getElementById("country"+i).value,
 			'countryAge':function () {
 				if('China'==this.country)
-					return parseInt(this.age)+1; 
+					return parseInt(2018 - this.year)+1; 
 				else 
-					return parseInt(this.age);
+					return parseInt(2018 - this.year);
 				}
 		};
 	}
@@ -266,13 +240,26 @@ function genObjectArray() {
 	document.getElementById("div2").innerHTML = divContent;
 }
 
-/* genTable()
- * generates an HTML table containing localized output from 
- */
+function genTable(genObjectArray){
 
-			</script>
+var html = "<table table-striped>";
+
+for (var i = 0; i < rows.length; i++) {
+    html+="<tr>";
+    html+="<td>"+rows[i].fname.genObjectArray+"</td>";
+    html+="<td>"+rows[i].surname.genObjectArray+"</td>";
+    html+="<td>"+rows[i].month.genObjectArray+"</td>";
+
+    html+="</tr>";
+
+}
+html+="</table>";
+document.getElementById("div3").innerHTML = html;
+  }
+  
+        </script>
 			
-		</body>
+	 </body>
 
 	</html>
 
