@@ -51,6 +51,32 @@
 		
 		<div id="div3">
 		</div>
+		
+		<!-- The table, below, shows examples of data. Do not include any HTML-coded table in your code. Instead, use JavaScript to append a table to the div, above. -->
+		<table border="1">
+		  <tr>
+		  	<th>Local Name</th>
+			<th>Surname</th>
+			<th>Month</th>
+			<th>Day</th>
+			<th>Year</th>
+			<th>Local Age</th>
+			<th>Zodiac</th>
+		  </tr>
+		  <tr>
+			<td>objArray[0]</td>
+			<td>objArray[1]</td>
+			<td>objArray[2]</td>
+			<td>objArray[3]</td>
+			<td>objArray[4]</td>
+			<td>ObjArray[5]</td>
+			<td>ObjArray[6]</td>
+		  </tr>
+		 
+
+		</table>
+
+
    
 		<script>
 		
@@ -240,46 +266,22 @@ function genObjectArray() {
 	document.getElementById("div2").innerHTML = divContent;
 }
 
-function genTable(genObjectArray){
 
-var html = "<table table-striped>";
+/* genTable()
+ * generates an HTML table containing localized output from 
+ */
+ function genTable() {
+	// create a new table element, and append to div3
+	var newelement = document.createElement("table");
+	newelement.setAttribute("id","table1");
+	var div3 = document.getElementById("div3");
+	div3.appendChild(newelement);
+	
+	for(var i = 0; i < objArray.length; i++){
+	document.write(objArray[i]);
+   }
+ }
 
-for (var i = 0; i < rows.length; i++) {
-    html+="<tr>";
-    html+="<td>"+rows[i].fname.genObjectArray+"</td>";
-    html+="<td>"+rows[i].surname.genObjectArray+"</td>";
-    html+="<td>"+rows[i].month.genObjectArray+"</td>";
-
-    html+="</tr>";
-
-}
-html+="</table>";
-document.getElementById("div3").innerHTML = html;
-  }
-
-  /*function genTable(){
-  generates an HTML table containing localized output from  
- if('China' == this.country)
-<table border="1">
-		  <tr>
-			<th>Surname</th>
-			<th>Local Name</th>
-			<th>Year</th>
-			<th>Month</th>
-			<th>Day</th>
-			<th>Local Age</th>
-			<th>Zodiac</th>
-		  </tr>
-		  else
-		  	<th>Local Name</th>
-			<th>Surname</th>
-			<th>Month</th>
-			<th>Day</th>
-			<th>Year</th>
-			<th>Local Age</th>
-			<th>Zodiac</th>
-
-		</table>*/
 
         </script>
 			
