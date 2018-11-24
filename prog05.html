@@ -1,0 +1,130 @@
+
+<!doctype html>
+<html>
+
+	<head>
+		<style>
+		label {
+			width: 60px;
+			text-align: right;
+			padding-right: 5px;
+			display: inline-block;
+		}
+		input[type="number"] {
+			width:50px;
+			margin-right: 25px;
+		}
+		</style>
+	</head>
+
+	<body onload="addForm();">
+
+		<h1>Add new input lines to HTML entry form</h1>
+		
+		<p>Enable users to add a row of fields to an HTML input form. In this code, after the HTML loads, addForm() is called. Clicking the Add Line button calls a function, addLine(), which calls addField() once for each field in the new input line. The elements, label and input, are formatted using CSS. </p>
+
+		<button type="button" onclick="Person();">Add Line</button>
+
+		<br />
+		<br />
+		
+		<p id="p1">
+		</p>
+		
+		<h1>Generate array of objects</h1>
+		
+		<p>Loop through the HTML form lines and store the data into an array of objects, where each property of an object contains the data in the input field of the HTML entry form. </p>
+	    
+		<button type="button" onclick="Person();">Generate and Display Array of Objects</button>
+		<br />
+		
+		<p id="p2">
+		</p>
+		
+		<h1>Display table containing data from array of objects</h1>
+		
+		<p>Loop through the HTML form lines and store the data into an array of objects, where each property of an object contains the data in the input field of the HTML entry form. </p>
+
+		<button type="button" onclick="Table();">Generate and Display Table</button>
+		<br />
+		<br />
+		
+		<div id="div3">
+		</div>
+   
+		<script type ="text/javascript">
+		
+		
+		function Person(name, surname, BDay, BMonth, BYear, country, countryAge){
+		
+		this.name = name;
+		this.surname = surname;
+		this.BDay = BDay;
+		this.BMonth = BMonth;
+		this.BYear = parseInt(BYear);
+		this.country = country;
+		if(country == "USA"){
+		this.countryAge = parseInt(countryAge);
+		}
+		else{
+		this.countryAge = parseInt(countryAge + 1);
+	}
+		this.info = function(){
+		return "My name is " + this.name + " " + this.surname
+		+ " " + "<br /> My birthday is " + this.BMonth + "/" + this.BDay +
+		"/" + this.BYear + " and I live in " + this.country + "<br /> I am " + this.countryAge + " years old";
+		
+		}
+		this.info2 = function(){
+		return "My name is " + this.surname + " " + this.name
+		+ " " + "<br /> My birthday is " + this.BYear + "/" + this.BMonth +
+		"/" + this.BDay + " and I live in " + this.country  + "<br /> I am " + this.countryAge + " years old";
+		
+    }
+}
+	
+	Jane = new Person("Jane", "Doe", "04", "01", "1997", "China", 21);
+	document.getElementById("p1").innerHTML = Jane.info2();
+	document.getElementById("p2").innerHTML = JSON.stringify(Jane);
+
+ function Table(thArr, elemId) {
+  this.thArr = thArr;
+  this.tbl = null;
+  this.makeTable = function(){
+    
+    // make/append new table element
+  	var el = document.createElement("table");
+	  el.setAttribute("id","table1");
+    el.setAttribute("border","1");
+	  var root = 
+        document.getElementById(elemId);
+	  root.appendChild(el);
+    // make table element the new root
+    root = el;
+    
+    // make/append table row for headers
+    var el = document.createElement("tr");
+	  el.setAttribute("id","headerRow");
+	  root.appendChild(el);
+    // make table row the new root
+    root = el;
+    
+    // make/append table headers
+    for (i=0; i<thArr.length; i++) {
+      var thElem = 
+          document.createElement("th");
+	    var t = document.createTextNode(thArr[i]);
+	    thElem.appendChild(t);
+      root.appendChild(thElem);
+    }
+
+  }
+}
+thArr = ["Name", "Surname", "Birth Day", "Birth Month", "Birth Year", "Country", "Zodiac"];
+tbl = new Table(thArr, "div3");
+tbl.makeTable();
+
+	</script>
+	</body>
+	</html>
+	
