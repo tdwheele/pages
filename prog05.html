@@ -54,7 +54,16 @@
    
 		<script type ="text/javascript">
 		
+		function Person(){
+		this.name = "John";
+		this.surname = "Doe";
+		this.BDay = "01";
+		this.BMonth = "12";
+		this.BYear = "1988";
+		this.country = "USA";
+		this.countryAge = 30;
 		
+		}
 		function Person(name, surname, BDay, BMonth, BYear, country, countryAge){
 		
 		this.name = name;
@@ -124,6 +133,30 @@ thArr = ["Name", "Surname", "Birth Day", "Birth Month", "Birth Year", "Country",
 tbl = new Table(thArr, "div3");
 tbl.makeTable();
 
+/*class Person{
+  constructor(name, surname, BDay, BMonth, BYear, country, countryAge){
+		
+		this.name = name;
+		this.surname = surname;
+		this.BDay = BDay;
+		this.BMonth = BMonth;
+		this.BYear = parseInt(BYear);
+		this.country = country;
+		if(country == "USA"){
+		this.countryAge = parseInt(countryAge);
+		}
+		else{
+		this.countryAge = parseInt(countryAge + 1);
+	}
+
+     register(){
+        console.log(this.name + this.surname+ 'is now registered');
+}
+
+    let Tom = new Person('Tom', "Doe", "09", "11", "1998", "USA", 20);
+
+     Tom.register();*/
+	 
 	</script>
 	</body>
 	</html>
