@@ -284,45 +284,42 @@ function getZodiac(i) {
 	var day = objArray[i].BDay;
 	
 	if (objArray[i].country == "China") {
-		switch(objArray[i].BYear % 12) {
-			case 0:
-				zodiac = "Ox";
-				break;
-			case 1:
-				zodiac = "Tiger";
-				break;
-			case 2:
-				zodiac = "Rabbit";
-				break;
-			case 3:
-				zodiac = "Dragon";
-				break;
-			case 4:
-				zodiac = "Snake";
-				break;
-			case 5:
-				zodiac = "Horse";
-				break;
-			case 6:
-				zodiac = "Sheep";
-				break;
-			case 7:
-				zodiac = "Monkey";
-				break;
-			case 8:
-				zodiac = "Rooster";
-				break;
-			case 9:
-				zodiac = "Dog";
-				break;
-			case 10:
-				zodiac = "Pig";
-				break;
-			case 11:
-				zodiac = "Rat";
-				break;		
+		if (this.BYear % 12 == 0) { 
+			return 'Monkey';
 		}
-		
+		else if (this.BYear % 12 == 1) { 
+    		return 'Rooster';
+		}
+		else if (this.BYear % 12 == 2) { 
+			return 'Dog';
+		}
+		else if (this.BYear % 12 == 3) { 
+			return 'Pig';
+		}
+		else if (this.BYear % 12 == 4) {
+			return 'Rat';
+		}
+		else if (this.BYear % 12 == 5) {
+			return 'Ox';
+		}
+		else if (this.BYear % 12 == 6) {
+			return 'Tiger';
+		}
+		else if (this.BYear % 12 == 7) {
+			return 'Rabbit';
+		}
+		else if (this.BYear % 12 == 8) {
+			return 'Dragon';
+		}
+		else if (this.BYear % 12 == 9) {
+			return 'Snake';
+		}
+		else if (this.BYear % 12 == 10) {
+			return 'Horse';
+		}
+		else {
+			return 'Sheep';
+			}		
 		
 	}
 	else {
@@ -460,6 +457,5 @@ function getZodiac(i) {
 		</body>
 
 	</html>
-
 
 
