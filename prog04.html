@@ -190,6 +190,28 @@ function addField(formId, namePrefix, labelText, dataType, placeholder, fieldSiz
 	}
 
 }
+/* findAge()
+ * determines age using day and month
+ */
+function findAge(){ //begin findAge
+	var age, date, f;
+	
+	for(i = 0; i < currentLine; i++) {
+		age = new Date().getFullYear() - document.getElementById("BYear"+i).value;
+		date = new Date();
+		birthMonth = document.getElementById("BMonth"+i).value;
+		birthDay = document.getElementById("BDay"+i).value;
+ 		if ((birthMonth - 1)> date.getMonth())
+			age -= 1;
+		else if ((birthMonth - 1) == date.getMonth()) {
+			if (birthDay > date.getDate())
+			age -= 1;
+		}
+		
+		objArray[i].age = age;
+	}	
+} //end findAge
+
 /* genObjectArray()
  * generates content for an array of objects, 
  * where each element of the array 
@@ -208,18 +230,18 @@ function genObjectArray() {
 			'BMonth':document.getElementById("BMonth"+i).value,
 			'BYear' :document.getElementById("BYear"+i).value, 
 			'country'  :document.getElementById("country"+i).value,
-			'age'	  :parseInt(document.getElementById("age"+i).value)?parseInt(document.getElementById("age"+i).value):0,
-			'age': function(){
-				return 2018 - this.BYear;
-			},
+			'age'		:new Date().getFullYear() - document.getElementById("birthYear"+i).value,
 			'countryAge':function () {
 				if('China'==this.country)
-					return parseInt(this.age())+1; 
+					return parseInt(this.age)+1; 
 				else 
-					return parseInt(this.age());
+					return parseInt(this.age);
 				}
 		};
 	}
+	
+	findAge();
+
 		
 	// display objArray
 	var divContent = "<ol start='0'>";
