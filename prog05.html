@@ -287,12 +287,12 @@
 					if (e.country=='USA') 
 					{
 						code+="<td>" + e.fName + " " + e.surname + "</td>";
-						code+="<td>" + e.BMonth + " " + e.BDay + " " + e.BYear + "</td>";
+						code+="<td>" + e.BMonth + "/" + e.BDay + "/" + e.BYear + "</td>";
 					}
 					else 
 					{
 						code+="<td>" + e.surname + " " + e.fName + "</td>";
-						code+="<td>" + e.BYear + " " + e.BMonth + " " + e.BDay + "</td>";
+						code+="<td>" + e.BYear + "/" + e.BMonth + "/" + e.BDay + "</td>";
 					}
 					code+="<td>" + e.countryAge() + "</td>";
 					code+="<td>" + e.zodiacSign() + "</td>";
