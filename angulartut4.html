@@ -23,9 +23,7 @@
     </style>
   </head>
   <body>
-    <!-- AngularJS can respond to events -->
     <div ng-controller="eventCtrl">
-      <!-- ng-change requires ng-model -->
       <input ng-blur="blur = blur + 1"
       ng-click="click = click + 1"
       ng-dblclick="dblclick = dblclick + 1"
@@ -48,14 +46,11 @@
       <h4>Focus Events : {{focus}}</h4>
       <h4>Change Events : {{change}}</h4>
 
-      <!-- There is also keypress and keyup -->
       <h4>Key Pressed : {{kdKey}}</h4>
 
-      <!-- There is also mousedown, mousemove, mouseover and mouseup -->
       <h4>Mouse Enter Events : {{mouseenter}}</h4>
       <h4>Mouse Leave Events : {{mouseleave}}</h4>
 
-      <!-- We can disable and inable elements -->
       <p>
         <button ng-disabled="disableButton">Button</button>
       </p>
@@ -63,14 +58,12 @@
         <input type="checkbox" ng-model="disableButton">Disable Button
       </p>
 
-      <!-- We can hide and show elements -->
       <p>
         <input type="checkbox" ng-model="daytimeButton">Morning
       </p>
       <p ng-hide="!daytimeButton">Good Morning</p>
       <p ng-hide="daytimeButton">Good Evening</p>
 
-      <!-- We can dynamically change a class -->
       <p>
         <select ng-model="textStyling">
           <option value="bluetext">Blue Text</option>
@@ -80,7 +73,6 @@
       <p ng-class="textStyling">Some Random Text</p>
     </div>
 
-    <!-- We can bind classes on even elements with ng-class-even and/or ng-class-odd -->
     <table>
       <tr ng-repeat="item in capitals" ng-class-even="'stripedblue'"
       ng-class-odd="'stripedbeige'">
@@ -89,10 +81,8 @@
       </tr>
     </table>
 
-    <!-- Load the AngularJS library -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
 
-    <!-- Load the JS Module -->
     <script src="js/exam4.js"></script>
   </body>
 </html>
