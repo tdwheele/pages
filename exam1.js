@@ -10,5 +10,11 @@ app1.controller('ctrl1', function($scope) {
   $scope.updateValue = function() {
     $scope.calculation = $scope.first + ' + ' + $scope.second +
       " = " + (+$scope.first + +$scope.second);
+    
+    $(document).ready(function(){
+    $("body").click(function(){
+        $(this).hide();
+    });
+});
   };
 });
